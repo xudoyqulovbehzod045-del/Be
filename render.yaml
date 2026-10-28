@@ -4,7 +4,7 @@ services:
     runtime: python
     plan: starter
     buildCommand: pip install -r requirements.txt
-    startCommand: python kino_bot.py
+    startCommand: python main.py
     disk:                   # bazani saqlab turadi (qayta ishga tushganda o'chmaydi)
       name: kino-data
       mountPath: /data
