@@ -1,0 +1,22 @@
+services:
+  - type: worker            # doimiy ishlaydi (pullik, Starter reja)
+    name: kino-bot
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python kino_bot.py
+    disk:                   # bazani saqlab turadi (qayta ishga tushganda o'chmaydi)
+      name: kino-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: BOT_TOKEN
+        sync: false         # Render panelida qo'lda kiritasiz
+      - key: ADMINS
+        sync: false
+      - key: DB_PATH
+        value: /data/kino.db
+      - key: CARD
+        sync: false
+      - key: CARD_OWNER
+        sync: false
